@@ -115,6 +115,9 @@ export const COURSES: Record<string, Course> = {
     floor: "4th Floor",
     room: "CRC 508",
     online: false,
+    whatsappGroups: [
+      { label: "Class Group", url: "https://chat.whatsapp.com/K6kscBchf4z0POdvzB5bPh" },
+    ],
   },
   "26MEE1002L": {
     code: "26MEE1002L",

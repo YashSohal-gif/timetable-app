@@ -4,6 +4,20 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "My Timetable — Batch 1",
   description: "A clean, interactive weekly class timetable.",
+  manifest: "manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Timetable",
+  },
+  icons: {
+    icon: "icon-192.png",
+    apple: "apple-touch-icon.png",
+  },
+};
+
+export const viewport = {
+  themeColor: "#0f172a",
 };
 
 // Avoid a flash of the wrong theme before our client script runs.

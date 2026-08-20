@@ -17,7 +17,7 @@ export default function DetailPanel({
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-30 flex justify-center px-3 pb-3 sm:px-6 sm:pb-6">
-      <div className="glass-panel w-full max-w-xl rounded-[28px] p-4 sm:p-6">
+      <div className="glass-panel-solid w-full max-w-xl rounded-[28px] p-4 sm:p-6">
         <div className="mx-auto -mt-1 mb-3 h-1 w-9 rounded-full bg-slate-300/70 dark:bg-white/15 sm:hidden" />
 
         <div className="flex items-start justify-between gap-3">

@@ -22,23 +22,23 @@ export default function CourseList({
             key={course.code}
             onClick={() => onSelectCode(isSelected ? null : course.code)}
             id={`course-${course.code}`}
-            className={`flex flex-col gap-2 rounded-2xl border p-4 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-lg ${theme.bg} ${theme.border} ${
-              isSelected ? `ring-2 ${theme.ring} ring-offset-2 dark:ring-offset-slate-950` : ""
+            className={`glass-panel flex flex-col gap-2.5 rounded-[22px] p-4.5 text-left transition duration-300 ease-out hover:-translate-y-1 ${
+              isSelected ? `ring-2 ${theme.ring} ring-offset-2 dark:ring-offset-black` : ""
             }`}
           >
             <div className="flex items-center justify-between">
-              <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${theme.text} bg-white/60 dark:bg-black/20`}>
+              <span className={`rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide ${theme.text} ${theme.bg} border ${theme.border}`}>
                 {course.code}
               </span>
-              <span className={`flex items-center gap-1 text-xs font-semibold ${theme.text}`}>
+              <span className={`flex items-center gap-1.5 text-xs font-semibold ${theme.text}`}>
                 <span className={`h-2 w-2 rounded-full ${theme.dot}`} />
                 {course.credit} cr
               </span>
             </div>
 
-            <h3 className={`text-sm font-bold leading-snug ${theme.text}`}>{course.name}</h3>
+            <h3 className="text-[15px] font-semibold leading-snug tracking-tight text-slate-900 dark:text-white">{course.name}</h3>
 
-            <div className="mt-1 space-y-1 text-xs text-slate-600 dark:text-slate-300">
+            <div className="mt-1 space-y-1.5 text-[13px] text-slate-500 dark:text-slate-400">
               <div className="flex items-center gap-1.5">
                 <span>👤</span>
                 <span className="truncate">{course.faculty}</span>

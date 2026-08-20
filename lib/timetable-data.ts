@@ -106,7 +106,6 @@ export const COURSES: Record<string, Course> = {
     whatsappGroups: [
       { label: "Class Group", url: "https://chat.whatsapp.com/L26dT5y2gYwAF7x5jQjpU0" },
     ],
-    classroomUrl: "https://classroom.google.com/c/ODU1OTE3Njk5MjY0",
   },
   "26EEE1001T": {
     code: "26EEE1001T",
@@ -136,7 +135,6 @@ export const COURSES: Record<string, Course> = {
     floor: "1st Floor",
     room: "Computer Programming Lab",
     online: false,
-    classroomUrl: "https://classroom.google.com/c/ODc1MDcwNDQ5NzE3",
   },
   "26CSE1001T": {
     code: "26CSE1001T",

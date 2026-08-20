@@ -29,7 +29,8 @@ export default function Home() {
         </section>
 
         <footer className="pt-6 text-center text-[11px] font-medium tracking-wide text-slate-400 dark:text-slate-500">
-          Built with Next.js · Data transcribed from the official Batch 1 timetable
+          <p>Built with Next.js · Data transcribed from the official Batch 1 timetable</p>
+          <p className="mt-1">Made by Yash Sohal</p>
         </footer>
       </main>
 
@@ -41,7 +42,7 @@ export default function Home() {
 function SectionTitle({ title, subtitle }: { title: string; subtitle: string }) {
   return (
     <div className="mb-4">
-      <h2 className="text-[22px] font-semibold tracking-tight text-slate-900 dark:text-white">{title}</h2>
+      <h2 className="text-[22px] font-semibold tracking-tight text-slate-900 dark:text-white">{title}</p>
       <p className="mt-0.5 text-[13px] text-slate-500 dark:text-slate-400">{subtitle}</p>
     </div>
   );

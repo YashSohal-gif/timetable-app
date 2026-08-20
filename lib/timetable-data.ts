@@ -29,6 +29,7 @@ export interface Course {
   room: string | null;
   online: boolean;
   whatsappGroups?: { label: string; url: string }[];
+  classroomUrl?: string;
 }
 
 export interface GridCell {
@@ -69,6 +70,9 @@ export const COURSES: Record<string, Course> = {
     floor: "4th Floor",
     room: "CRC 508",
     online: false,
+    whatsappGroups: [
+      { label: "Class Group", url: "https://chat.whatsapp.com/ITS0ADehk6BA9VmezWgWss" },
+    ],
   },
   "26PYB1002J": {
     code: "26PYB1002J",
@@ -102,6 +106,7 @@ export const COURSES: Record<string, Course> = {
     whatsappGroups: [
       { label: "Class Group", url: "https://chat.whatsapp.com/L26dT5y2gYwAF7x5jQjpU0" },
     ],
+    classroomUrl: "https://classroom.google.com/c/ODU1OTE3Njk5MjY0",
   },
   "26EEE1001T": {
     code: "26EEE1001T",
@@ -131,6 +136,7 @@ export const COURSES: Record<string, Course> = {
     floor: "1st Floor",
     room: "Computer Programming Lab",
     online: false,
+    classroomUrl: "https://classroom.google.com/c/ODc1MDcwNDQ5NzE3",
   },
   "26CSE1001T": {
     code: "26CSE1001T",
@@ -147,6 +153,7 @@ export const COURSES: Record<string, Course> = {
     whatsappGroups: [
       { label: "Class Group", url: "https://chat.whatsapp.com/HzD7MmBvlzLK6wbAyx5Jdh" },
     ],
+    classroomUrl: "https://classroom.google.com/c/ODc1MjU0NDk5MTc2?cjc=576rnjhd",
   },
   "26GNN1001T": {
     code: "26GNN1001T",

@@ -39,20 +39,20 @@ export default function TimetableGrid({
   return (
     <div className="space-y-4">
       {/* ---------- Desktop / tablet: full grid ---------- */}
-      <div className="hidden overflow-x-auto rounded-2xl border border-black/5 bg-white/70 shadow-sm backdrop-blur dark:border-white/10 dark:bg-white/5 lg:block">
+      <div className="glass-panel hidden overflow-x-auto rounded-[28px] lg:block">
         <table className="w-full min-w-[1000px] border-collapse text-sm">
           <thead>
             <tr>
-              <th className="sticky left-0 z-10 w-28 border-b border-black/5 bg-white/90 p-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500 backdrop-blur dark:border-white/10 dark:bg-slate-900/90 dark:text-slate-400">
+              <th className="sticky left-0 z-10 w-28 border-b border-black/5 bg-white/80 p-4 text-left text-[11px] font-semibold uppercase tracking-wide text-slate-500 backdrop-blur-xl dark:border-white/10 dark:bg-black/40 dark:text-slate-400">
                 Day
               </th>
               {PERIODS.map((p) => (
                 <th
                   key={p.index}
-                  className="border-b border-black/5 p-2 text-center text-xs font-semibold text-slate-500 dark:border-white/10 dark:text-slate-400"
+                  className="border-b border-black/5 p-2.5 text-center text-[11px] font-semibold text-slate-500 dark:border-white/10 dark:text-slate-400"
                 >
                   <div>P{p.index}</div>
-                  <div className="mt-0.5 whitespace-nowrap font-normal text-[10px] text-slate-400 dark:text-slate-500">
+                  <div className="mt-0.5 whitespace-nowrap text-[10px] font-medium text-slate-400 dark:text-slate-500">
                     {formatTime(p.from)} - {formatTime(p.to)}
                   </div>
                 </th>
@@ -62,7 +62,7 @@ export default function TimetableGrid({
           <tbody>
             {DAYS.map((day) => (
               <tr key={day} className="group">
-                <td className="sticky left-0 z-10 border-b border-black/5 bg-white/90 p-3 text-sm font-semibold text-slate-700 backdrop-blur dark:border-white/10 dark:bg-slate-900/90 dark:text-slate-200">
+                <td className="sticky left-0 z-10 border-b border-black/5 bg-white/80 p-4 text-[13px] font-semibold text-slate-700 backdrop-blur-xl dark:border-white/10 dark:bg-black/40 dark:text-slate-200">
                   {day}
                 </td>
                 {mergedGrid[day].map((block) => {
@@ -73,7 +73,7 @@ export default function TimetableGrid({
                         colSpan={block.span}
                         className="border-b border-black/5 p-1 dark:border-white/10"
                       >
-                        <div className="h-14 rounded-lg border border-dashed border-black/5 dark:border-white/5" />
+                        <div className="h-14 rounded-xl border border-dashed border-black/[0.06] dark:border-white/[0.06]" />
                       </td>
                     );
                   }
@@ -88,7 +88,7 @@ export default function TimetableGrid({
                     >
                       <button
                         onClick={() => onSelectCode(isSelected ? null : block.code)}
-                        className={`h-14 w-full rounded-lg border px-2 py-1 text-left transition hover:-translate-y-0.5 hover:shadow-md ${theme.bg} ${theme.border} ${theme.text} ${
+                        className={`h-14 w-full rounded-xl border px-2.5 py-1.5 text-left shadow-sm transition duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md ${theme.bg} ${theme.border} ${theme.text} ${
                           isSelected ? `ring-2 ${theme.ring} ring-offset-1` : ""
                         }`}
                         title={course?.name}
@@ -109,14 +109,14 @@ export default function TimetableGrid({
 
       {/* ---------- Mobile: day-by-day agenda ---------- */}
       <div className="lg:hidden">
-        <div className="mb-3 flex gap-1.5 overflow-x-auto rounded-full border border-black/5 bg-white/70 p-1.5 backdrop-blur dark:border-white/10 dark:bg-white/5">
+        <div className="glass-panel mb-3 flex gap-1.5 overflow-x-auto rounded-full p-1.5">
           {DAYS.map((day) => (
             <button
               key={day}
               onClick={() => setActiveDay(day)}
-              className={`shrink-0 rounded-full px-3.5 py-1.5 text-xs font-semibold transition ${
+              className={`shrink-0 rounded-full px-4 py-1.5 text-[13px] font-semibold transition duration-200 ${
                 activeDay === day
-                  ? "bg-slate-900 text-white dark:bg-white dark:text-slate-900"
+                  ? "bg-slate-900 text-white shadow-sm dark:bg-white dark:text-black"
                   : "text-slate-500 hover:bg-black/5 dark:text-slate-400 dark:hover:bg-white/10"
               }`}
             >
@@ -125,9 +125,9 @@ export default function TimetableGrid({
           ))}
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-2.5">
           {mergedGrid[activeDay].filter((b) => b.code).length === 0 && (
-            <div className="rounded-2xl border border-dashed border-black/10 p-8 text-center text-sm text-slate-400 dark:border-white/10">
+            <div className="glass-panel rounded-[22px] border-dashed p-8 text-center text-sm text-slate-400 dark:text-slate-500">
               No classes 🎉
             </div>
           )}
@@ -142,18 +142,18 @@ export default function TimetableGrid({
               <button
                 key={block.start}
                 onClick={() => onSelectCode(isSelected ? null : block.code)}
-                className={`flex w-full items-center gap-3 rounded-2xl border p-3 text-left transition ${theme.bg} ${theme.border} ${
-                  isSelected ? `ring-2 ${theme.ring} ring-offset-1` : ""
+                className={`glass-panel flex w-full items-center gap-3 rounded-[20px] p-3.5 text-left transition duration-200 active:scale-[0.99] ${
+                  isSelected ? `ring-2 ${theme.ring} ring-offset-1 dark:ring-offset-black` : ""
                 }`}
               >
-                <div className="flex w-16 shrink-0 flex-col items-center rounded-xl bg-white/70 py-2 text-center text-[10px] font-semibold leading-tight text-slate-600 dark:bg-black/20 dark:text-slate-300">
+                <div className="flex w-16 shrink-0 flex-col items-center rounded-2xl bg-black/[0.04] py-2 text-center text-[10px] font-semibold leading-tight text-slate-600 dark:bg-white/[0.06] dark:text-slate-300">
                   <span>{formatTime(startPeriod.from)}</span>
                   <span className="text-slate-400">–</span>
                   <span>{formatTime(endPeriod.to)}</span>
                 </div>
                 <div className="min-w-0 flex-1">
-                  <div className={`truncate text-sm font-bold ${theme.text}`}>{block.code}</div>
-                  <div className={`truncate text-xs ${theme.text} opacity-80`}>
+                  <div className="truncate text-[14px] font-semibold tracking-tight text-slate-900 dark:text-white">{block.code}</div>
+                  <div className="truncate text-[12.5px] text-slate-500 dark:text-slate-400">
                     {course?.name}
                   </div>
                 </div>

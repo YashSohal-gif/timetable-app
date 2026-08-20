@@ -52,8 +52,8 @@ export default function TimetableGrid({
                   className="border-b border-black/5 p-2 text-center text-xs font-semibold text-slate-500 dark:border-white/10 dark:text-slate-400"
                 >
                   <div>P{p.index}</div>
-                  <div className="mt-0.5 font-normal text-[10px] text-slate-400 dark:text-slate-500">
-                    {formatTime(p.from)}
+                  <div className="mt-0.5 whitespace-nowrap font-normal text-[10px] text-slate-400 dark:text-slate-500">
+                    {formatTime(p.from)} - {formatTime(p.to)}
                   </div>
                 </th>
               ))}

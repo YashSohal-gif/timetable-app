@@ -28,6 +28,7 @@ export interface Course {
   floor: string | null;
   room: string | null;
   online: boolean;
+  whatsapp?: string;
 }
 
 export interface GridCell {
@@ -133,6 +134,7 @@ export const COURSES: Record<string, Course> = {
     floor: "4th Floor",
     room: "CRC 508",
     online: false,
+    whatsapp: "https://chat.whatsapp.com/HzD7MmBvlzLK6wbAyx5Jdh",
   },
   "26GNN1001T": {
     code: "26GNN1001T",

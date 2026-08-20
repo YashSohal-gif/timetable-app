@@ -10,11 +10,11 @@ export default function StatsBar() {
   const labCount = Object.values(COURSES).filter((c) => c.code.endsWith("L")).length;
 
   const stats = [
-    { label: "Courses", value: totalCourses, icon: "📚" },
-    { label: "Total Credits", value: totalCredits, icon: "🏆" },
-    { label: "Periods / Week", value: totalPeriods, icon: "⏱️" },
-    { label: "Lab Sessions", value: labCount, icon: "🧪" },
-    { label: "Periods / Day", value: PERIODS.length, icon: "📅" },
+    { label: "Courses", value: totalCourses, icon: "📚", gradient: "from-indigo-500 to-violet-500" },
+    { label: "Total Credits", value: totalCredits, icon: "🏆", gradient: "from-amber-500 to-orange-500" },
+    { label: "Periods / Week", value: totalPeriods, icon: "⏱️", gradient: "from-sky-500 to-cyan-400" },
+    { label: "Lab Sessions", value: labCount, icon: "🧪", gradient: "from-emerald-500 to-teal-400" },
+    { label: "Periods / Day", value: PERIODS.length, icon: "📅", gradient: "from-pink-500 to-rose-400" },
   ];
 
   return (
@@ -22,13 +22,17 @@ export default function StatsBar() {
       {stats.map((s) => (
         <div
           key={s.label}
-          className="rounded-2xl border border-black/5 bg-white/70 p-4 text-center shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 dark:bg-white/5"
+          className="glass-panel flex flex-col items-center gap-2 rounded-[22px] px-3 py-5 text-center transition duration-300 hover:-translate-y-1"
         >
-          <div className="text-2xl">{s.icon}</div>
-          <div className="mt-1 text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+          <div
+            className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br ${s.gradient} text-base shadow-sm`}
+          >
+            {s.icon}
+          </div>
+          <div className="text-[22px] font-semibold leading-none tracking-tight text-slate-900 dark:text-white">
             {s.value}
           </div>
-          <div className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
+          <div className="text-[11px] font-medium tracking-wide text-slate-500 dark:text-slate-400">
             {s.label}
           </div>
         </div>

@@ -11,24 +11,25 @@ export default function Home() {
   const [selectedCode, setSelectedCode] = useState<string | null>(null);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 pb-28 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900">
-      <main className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:px-6 sm:py-10">
+    <div className="min-h-screen pb-28">
+      <div className="mesh-backdrop" />
+      <main className="mx-auto max-w-6xl space-y-10 px-4 py-8 sm:px-6 sm:py-12">
         <Header />
 
         <StatsBar />
 
         <section>
-          <SectionTitle icon="📆" title="Weekly Grid" subtitle="Your full week at a glance" />
+          <SectionTitle title="Weekly Grid" subtitle="Your full week at a glance" />
           <TimetableGrid selectedCode={selectedCode} onSelectCode={setSelectedCode} />
         </section>
 
         <section>
-          <SectionTitle icon="📚" title="Course Details" subtitle="Faculty, credits, slots & rooms" />
+          <SectionTitle title="Course Details" subtitle="Faculty, credits, slots & rooms" />
           <CourseList selectedCode={selectedCode} onSelectCode={setSelectedCode} />
         </section>
 
-        <footer className="pt-6 text-center text-xs text-slate-400 dark:text-slate-500">
-          Built with Next.js + Tailwind · Data transcribed from the official Batch 1 timetable
+        <footer className="pt-6 text-center text-[11px] font-medium tracking-wide text-slate-400 dark:text-slate-500">
+          Built with Next.js · Data transcribed from the official Batch 1 timetable
         </footer>
       </main>
 
@@ -37,14 +38,11 @@ export default function Home() {
   );
 }
 
-function SectionTitle({ icon, title, subtitle }: { icon: string; title: string; subtitle: string }) {
+function SectionTitle({ title, subtitle }: { title: string; subtitle: string }) {
   return (
-    <div className="mb-3 flex items-center gap-2">
-      <span className="text-xl">{icon}</span>
-      <div>
-        <h2 className="text-lg font-bold text-slate-900 dark:text-white">{title}</h2>
-        <p className="text-xs text-slate-500 dark:text-slate-400">{subtitle}</p>
-      </div>
+    <div className="mb-4">
+      <h2 className="text-[22px] font-semibold tracking-tight text-slate-900 dark:text-white">{title}</h2>
+      <p className="mt-0.5 text-[13px] text-slate-500 dark:text-slate-400">{subtitle}</p>
     </div>
   );
 }

@@ -17,28 +17,28 @@ export default function DetailPanel({
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-30 flex justify-center px-3 pb-3 sm:px-6 sm:pb-6">
-      <div
-        className={`w-full max-w-xl rounded-2xl border ${theme.border} ${theme.bg} p-4 shadow-2xl backdrop-blur-md sm:p-5`}
-      >
+      <div className="glass-panel w-full max-w-xl rounded-[28px] p-4 sm:p-6">
+        <div className="mx-auto -mt-1 mb-3 h-1 w-9 rounded-full bg-slate-300/70 dark:bg-white/15 sm:hidden" />
+
         <div className="flex items-start justify-between gap-3">
           <div>
-            <span className={`rounded-full bg-white/70 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide ${theme.text} dark:bg-black/20`}>
+            <span className={`rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide ${theme.text} ${theme.bg} border ${theme.border}`}>
               {course.code}
             </span>
-            <h3 className={`mt-1.5 text-base font-bold leading-snug ${theme.text}`}>
+            <h3 className="mt-2 text-[17px] font-semibold leading-snug tracking-tight text-slate-900 dark:text-white">
               {course.name}
             </h3>
           </div>
           <button
             onClick={onClose}
             aria-label="Close"
-            className="shrink-0 rounded-full bg-white/70 px-2.5 py-1 text-sm font-bold text-slate-500 hover:bg-white dark:bg-black/20 dark:text-slate-300"
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-black/5 text-sm font-semibold text-slate-500 transition hover:bg-black/10 dark:bg-white/10 dark:text-slate-300 dark:hover:bg-white/15"
           >
             ✕
           </button>
         </div>
 
-        <div className={`mt-3 grid grid-cols-2 gap-2 text-xs ${theme.text} sm:grid-cols-4`}>
+        <div className="mt-4 grid grid-cols-2 gap-2 text-xs sm:grid-cols-4">
           <Fact label="Credits" value={String(course.credit)} />
           <Fact label="Slot" value={course.slots.join(", ")} />
           <Fact label="Faculty ID" value={course.facultyId} />
@@ -46,12 +46,12 @@ export default function DetailPanel({
         </div>
 
         {!course.online && (
-          <div className={`mt-2 rounded-xl bg-white/60 p-3 text-xs ${theme.text} dark:bg-black/20`}>
+          <div className="mt-2 rounded-2xl bg-black/[0.03] p-3.5 text-[13px] text-slate-600 dark:bg-white/[0.05] dark:text-slate-300">
             📍 {course.room}, {course.building} ({course.floor}) — {course.location}
           </div>
         )}
         {course.online && (
-          <div className={`mt-2 rounded-xl bg-white/60 p-3 text-xs ${theme.text} dark:bg-black/20`}>
+          <div className="mt-2 rounded-2xl bg-black/[0.03] p-3.5 text-[13px] text-slate-600 dark:bg-white/[0.05] dark:text-slate-300">
             💻 Delivered online — no physical classroom
           </div>
         )}
@@ -64,7 +64,7 @@ export default function DetailPanel({
                 href={g.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:brightness-105 active:scale-[0.98] sm:w-auto sm:flex-1"
+                className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#25D366] px-4 py-3 text-[13px] font-semibold text-white shadow-sm transition duration-150 hover:brightness-105 active:scale-[0.97] sm:w-auto sm:flex-1"
               >
                 <WhatsAppIcon />
                 {course.whatsappGroups!.length > 1 ? g.label : "Join Class WhatsApp Group"}
@@ -75,7 +75,7 @@ export default function DetailPanel({
                 href={course.classroomUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#1A73E8] px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:brightness-105 active:scale-[0.98] sm:w-auto sm:flex-1"
+                className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#1A73E8] px-4 py-3 text-[13px] font-semibold text-white shadow-sm transition duration-150 hover:brightness-105 active:scale-[0.97] sm:w-auto sm:flex-1"
               >
                 <ClassroomIcon />
                 Open Google Classroom
@@ -106,9 +106,9 @@ function ClassroomIcon() {
 
 function Fact({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-lg bg-white/60 px-2 py-1.5 dark:bg-black/20">
-      <div className="text-[10px] uppercase tracking-wide opacity-70">{label}</div>
-      <div className="truncate text-xs font-semibold">{value}</div>
+    <div className="rounded-xl bg-black/[0.03] px-2.5 py-2 dark:bg-white/[0.05]">
+      <div className="text-[10px] font-medium uppercase tracking-wide text-slate-400 dark:text-slate-500">{label}</div>
+      <div className="truncate text-[13px] font-semibold text-slate-800 dark:text-slate-100">{value}</div>
     </div>
   );
 }

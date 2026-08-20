@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { COURSES, DAYS, GRID, PERIODS, type DayName } from "@/lib/timetable-data";
 import { themeFor } from "@/lib/colors";
+import { formatTime } from "@/lib/format";
 
 // merges consecutive identical course codes in a day's row into blocks,
 // so a 4-period lab renders as one wide card instead of four separate ones.
@@ -52,7 +53,7 @@ export default function TimetableGrid({
                 >
                   <div>P{p.index}</div>
                   <div className="mt-0.5 font-normal text-[10px] text-slate-400 dark:text-slate-500">
-                    {p.from}
+                    {formatTime(p.from)}
                   </div>
                 </th>
               ))}
@@ -145,10 +146,10 @@ export default function TimetableGrid({
                   isSelected ? `ring-2 ${theme.ring} ring-offset-1` : ""
                 }`}
               >
-                <div className="flex w-16 shrink-0 flex-col items-center rounded-xl bg-white/70 py-2 text-[11px] font-semibold text-slate-600 dark:bg-black/20 dark:text-slate-300">
-                  <span>{startPeriod.from}</span>
+                <div className="flex w-16 shrink-0 flex-col items-center rounded-xl bg-white/70 py-2 text-center text-[10px] font-semibold leading-tight text-slate-600 dark:bg-black/20 dark:text-slate-300">
+                  <span>{formatTime(startPeriod.from)}</span>
                   <span className="text-slate-400">–</span>
-                  <span>{endPeriod.to}</span>
+                  <span>{formatTime(endPeriod.to)}</span>
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className={`truncate text-sm font-bold ${theme.text}`}>{block.code}</div>

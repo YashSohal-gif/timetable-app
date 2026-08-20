@@ -56,16 +56,21 @@ export default function DetailPanel({
           </div>
         )}
 
-        {course.whatsapp && (
-          <a
-            href={course.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:brightness-105 active:scale-[0.98]"
-          >
-            <WhatsAppIcon />
-            Join Class WhatsApp Group
-          </a>
+        {course.whatsappGroups && course.whatsappGroups.length > 0 && (
+          <div className="mt-3 flex flex-col gap-2 sm:flex-row">
+            {course.whatsappGroups.map((g) => (
+              <a
+                key={g.url}
+                href={g.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:brightness-105 active:scale-[0.98]"
+              >
+                <WhatsAppIcon />
+                {course.whatsappGroups!.length > 1 ? g.label : "Join Class WhatsApp Group"}
+              </a>
+            ))}
+          </div>
         )}
       </div>
     </div>
